@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+  font-family: "poppins";
+  font-weight: 700;
+  font-size: 40px;
+}
+#logInCon {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#logInCon form {
+  width: 450px;
+  padding: 25px;
+  border-radius: 20px;
+  background-color: rgba(22, 24, 31, 0.7);
+}
+#logInCon form input {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid rgb(75, 81, 102);
+  padding: 10px;
+  font-size: 18px;
+  margin-top: 20px;
+  border-radius: 8px;
+  outline: none;
+  color: rgb(207, 212, 233);
+  letter-spacing: 0.3px;
+}
+#logInCon form button {
+  width: 100%;
+  background: linear-gradient(to right, rgb(0, 81, 255), blue);
+  border: none;
+  padding: 13px;
+  font-size: 18px;
+  margin-top: 20px;
+  border-radius: 8px;
+  outline: none;
+  color: rgb(231, 234, 248);
+  letter-spacing: 0.3px;
+  font-weight: 600;
+}
