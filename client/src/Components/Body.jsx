@@ -7,11 +7,13 @@ import Header from "./Header";
 const Body = () => {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/browse" element={<Browse />} />
-        <Route path="/" element={<Login />} />
-      </Routes>
+      <div className="flex flex-row">
+        <Header />
+        <Routes>
+          <Route path="/browse" element={<Browse />} />
+          <Route path="/" element={<Login />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 };

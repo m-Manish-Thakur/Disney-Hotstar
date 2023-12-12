@@ -2,10 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  transition: 0.1s linear;
+}
 h1 {
   font-family: "poppins";
   font-weight: 700;
   font-size: 40px;
+}
+#nav i {
+  padding: 25px 5px;
+  color: rgb(175, 175, 175);
+  font-size: 18px;
+}
+#nav span {
+  width: 0;
+  transform: translateX(-10px);
+  opacity: 0;
+  color: rgb(175, 175, 175);
+  font-size: 18px;
+  cursor: pointer;
+}
+#nav span:hover {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: aliceblue;
+}
+#nav:hover span {
+  opacity: 1;
+  transform: translateX(10px);
+}
+#nav div:hover i {
+  color: aliceblue;
+  font-size: 18px;
 }
 #logInCon {
   background-size: cover;
@@ -18,8 +48,8 @@ h1 {
 }
 #logInCon form {
   width: 450px;
-  padding: 25px;
-  border-radius: 20px;
+  padding: 30px;
+  border-radius: 10px;
   background-color: rgba(22, 24, 31, 0.7);
 }
 #logInCon form input {
@@ -38,7 +68,7 @@ h1 {
   width: 100%;
   background: linear-gradient(to right, rgb(0, 81, 255), blue);
   border: none;
-  padding: 13px;
+  padding: 12px;
   font-size: 18px;
   margin-top: 20px;
   border-radius: 8px;
@@ -46,4 +76,7 @@ h1 {
   color: rgb(231, 234, 248);
   letter-spacing: 0.3px;
   font-weight: 600;
+}
+#logInCon form button:hover {
+  background: linear-gradient(to right, rgb(0, 68, 255), rgb(0, 60, 255));
 }
