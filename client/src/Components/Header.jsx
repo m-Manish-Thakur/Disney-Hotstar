@@ -27,7 +27,7 @@ const Header = () => {
         </div>
         <div className="flex items-center">
           <i className="fa-solid fa-baseball"></i>
-          <span>Movies</span>
+          <span>Sports</span>
         </div>
       </nav>
     </div>
