@@ -3,14 +3,14 @@ const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const MongoDB = require("./constants");
+const { MongoDB } = require("./constants");
 const dotenv = require("dotenv");
 dotenv.config();
 
 // Routes
 const userRoute = require("./Routes/User");
 
-app.use(cors());
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

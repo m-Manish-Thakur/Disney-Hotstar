@@ -80,3 +80,12 @@ h1 {
 #logInCon form button:hover {
   background: linear-gradient(to right, rgb(0, 68, 255), rgb(0, 60, 255));
 }
+
+/* ####################    HOME   ############################### */
+
+#browse {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
