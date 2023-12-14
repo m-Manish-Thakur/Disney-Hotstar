@@ -5,11 +5,32 @@
 * {
   transition: 0.1s linear;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
+
+#body {
+  background: linear-gradient(to left, rgba(7, 16, 67, 0.502), rgba(10, 10, 10, 0.584)),
+    url("https://www.iphone-droid.net/wp-content/uploads/2023/06/Disney-Hotstar-Contents.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  background-position: center;
+}
+
 h1 {
   font-family: "poppins";
   font-weight: 700;
   font-size: 40px;
 }
+#header {
+  background: linear-gradient(to right, rgb(8, 8, 15), rgba(8, 8, 15, 0.8), transparent);
+}
+
 #nav i {
   padding: 25px 5px;
   color: rgb(175, 175, 175);
@@ -81,11 +102,53 @@ h1 {
   background: linear-gradient(to right, rgb(0, 68, 255), rgb(0, 60, 255));
 }
 
-/* ####################    HOME   ############################### */
+/* ####################    Browse Page   ############################### */
 
 #browse {
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
+}
+
+#heroMovie {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: blueviolet;
+}
+#heroMovie video {
+  min-width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 1;
+  object-fit: cover;
+  background-color: aliceblue;
+}
+#heroMovie .content {
+  width: 400px;
+  position: absolute;
+  top: 45%;
+  left: 140px;
+  color: white;
+  z-index: 1;
+}
+
+/* ###########################  Now Playing Movie Page  ################################# */
+
+#nowPlaying {
+  width: 100vw;
+  padding: 50px 10vw;
+  background: rgb(14, 14, 22);
+}
+
+#movieCard {
+  width: 180px;
+  margin-top: 35px;
+}
+#movieCard img {
+  width: 100%;
+  border-radius: 5px;
+}
+#movieCard img:hover {
+  transform: scale(1.2, 1.2);
+  cursor: pointer;
 }

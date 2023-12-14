@@ -127,14 +127,7 @@ const Login = () => {
     }
   };
   return (
-    <div
-      id="logInCon"
-      style={{
-        background:
-          "linear-gradient(to left, rgba(1, 20, 124, 0.3), rgba(10,10 , 10, 0.5)), url('Images/background-2.png')",
-        backgroundSize: "cover",
-      }}
-    >
+    <div id="logInCon">
       <form action="#" onSubmit={(e) => e.preventDefault()}>
         <h2 className="font-bold text-3xl text-white mb-2">{isSignIn ? "Log In" : "Sign Up"}</h2>
         <p className="text-base text-gray-300 text-left mb-3  tracking-wide">
@@ -145,7 +138,7 @@ const Login = () => {
         <div className="relative">
           <input ref={password} type={showPassword ? "text" : "password"} placeholder="Password" required />
           <i
-            class={
+            className={
               showPassword
                 ? "fa-solid fa-eye absolute right-5 top-8 text-xl text-gray-300 cursor-pointer"
                 : "fa-solid fa-eye-slash absolute right-5 top-8 text-xl text-gray-300 cursor-pointer"
