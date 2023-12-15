@@ -63,6 +63,9 @@ const Login = () => {
           // Store user info in cookie (example: converting user object to JSON)
           Cookies.set("user", JSON.stringify(response.data.user), { expires: 1 });
 
+          // Force reload (bypass cache)
+          window.location.reload(true);
+
           email.current.value = "";
           password.current.value = "";
         } catch (error) {

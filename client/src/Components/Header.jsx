@@ -5,7 +5,7 @@ const Header = () => {
   const { user, token } = useSelector((store) => store.user);
 
   return (
-    <div className="fixed top-0 left-0 py-8 px-5 h-full flex flex-col justify-between items-center z-50" id="header">
+    <div className="fixed top-0 left-0 py-8 px-5 h-full flex flex-col justify-between z-50" id="header">
       <img
         src="https://img.hotstar.com/image/upload/v1656431456/web-images/logo-d-plus.svg"
         alt="logo"

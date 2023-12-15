@@ -9,9 +9,13 @@ const HeroPlayingMovies = () => {
         Your browser does not support the video tag.
       </video>
       <div class="content">
-        <h2 className="font-white text-6xl font-bold">Commando</h2>
+        <img
+          src="https://img10.hotstar.com/image/upload/f_auto,h_156/sources/r1/cms/prod/9166/1569166-t-0f0a4a6681b3"
+          alt="moviename"
+          style={{ width: "90%" }}
+        />
         <h4 className="mt-4 font-bold text-lg tracking-wide">2023 • 1 Season • 7 Languages</h4>
-        <p className="mt-4 text-gray-200 traking-wide">
+        <p className="mt-4 text-lg text-gray-200 traking-wide">
           India is in danger. And so is kshitij, an Indian spy behind enemy lines. What will commando Virat do to rescue
           him and his country?
         </p>

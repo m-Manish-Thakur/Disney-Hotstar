@@ -15,7 +15,7 @@ body::-webkit-scrollbar {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: row;
@@ -47,10 +47,10 @@ h1 {
 #nav span:hover {
   font-size: 19px;
   font-weight: 600;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.5px;
   color: aliceblue;
 }
-#nav:hover span {
+#header:hover span {
   opacity: 1;
   transform: translateX(10px);
 }
@@ -105,7 +105,7 @@ h1 {
 /* ####################    Browse Page   ############################### */
 
 #browse {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 }
 
@@ -113,7 +113,8 @@ h1 {
   width: 100vw;
   height: 100vh;
   position: relative;
-  background-color: blueviolet;
+  background: url("https://img10.hotstar.com/image/upload/f_auto/sources/r1/cms/prod/9167/1569167-i-ea6463d522e0");
+  background-size: cover;
 }
 #heroMovie video {
   min-width: 100vw;
@@ -126,7 +127,7 @@ h1 {
 #heroMovie .content {
   width: 400px;
   position: absolute;
-  top: 45%;
+  top: 40%;
   left: 140px;
   color: white;
   z-index: 1;
@@ -136,19 +137,67 @@ h1 {
 
 #nowPlaying {
   width: 100vw;
-  padding: 50px 10vw;
+  padding: 50px 5vw 50px 10vw;
   background: rgb(14, 14, 22);
+  position: relative;
 }
 
 #movieCard {
-  width: 180px;
-  margin-top: 35px;
+  width: 185px;
+  height: 265px;
+  margin: 20px 10px;
 }
-#movieCard img {
+#movieCard .poster {
   width: 100%;
+  height: 100%;
+  background-size: cover;
   border-radius: 5px;
+  position: relative;
+  z-index: 1;
 }
-#movieCard img:hover {
-  transform: scale(1.2, 1.2);
+#movieCard:hover {
+  transform: scale(1.3, 1.3);
   cursor: pointer;
+  transition: 0.3s linear;
+}
+#movieCard .cardContent {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  border-radius: 5px;
+  background: linear-gradient(to top, rgb(16, 16, 16), rgba(0, 0, 0, 0.466));
+  padding-top: 70%;
+  padding: 70% 7px 10px 7px;
+  opacity: 0;
+}
+#movieCard:hover .cardContent {
+  opacity: 1;
+  transition: 0.3s linear;
+  z-index: 100;
+}
+
+/* ########################   Movie Details  ########################################## */
+
+#movieDetails {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+}
+#movieDetails iframe {
+  min-width: 100vw;
+  min-height: 100vh;
+  position: absolute;
+  top: 1;
+  object-fit: cover;
+  background-color: aliceblue;
+}
+#movieDetails .content {
+  width: 400px;
+  position: absolute;
+  top: 40%;
+  left: 140px;
+  color: white;
+  z-index: 1;
 }
