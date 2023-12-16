@@ -142,10 +142,54 @@ h1 {
   position: relative;
 }
 
+/* ##########################  MOVIE Scroller  ############################ */
+.movie-scroller {
+  width: 100vw;
+  padding: 50px 5vw 50px 10vw;
+  background: rgba(20, 20, 32, 0.8);
+  overflow: hidden;
+  position: relative;
+}
+#container {
+  width: 98%;
+  padding: 40px 20px 40px 20px;
+  overflow: hidden;
+  margin-left: 50px;
+}
+.scroll-container {
+  margin: auto;
+  display: flex;
+  grid-gap: 10px;
+  transition: transform 0.5s ease; /* Add smooth transition for scrolling */
+}
+#button {
+  position: absolute;
+  top: 52%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  padding: 15px 10px;
+  font-size: 25px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#button:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+#button:first-child {
+  left: 10px;
+}
+
+#button:last-child {
+  right: 10px;
+}
+
 #movieCard {
   width: 185px;
   height: 265px;
-  margin: 20px 10px;
+  margin: 0 10px;
 }
 #movieCard .poster {
   width: 100%;

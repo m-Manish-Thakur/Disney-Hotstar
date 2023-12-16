@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../index.css";
+import { IMG_CDN_URL } from "../Constants/constants";
 
 const MovieCard = (movie) => {
   const [hoverCard, setHoverCard] = useState(false);
@@ -13,7 +14,7 @@ const MovieCard = (movie) => {
             <div
               className="poster"
               style={{
-                backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.movie.poster_path}')`,
+                backgroundImage: `url('${IMG_CDN_URL}/${movie.movie.poster_path}')`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
               }}

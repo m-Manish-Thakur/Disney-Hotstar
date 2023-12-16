@@ -3,13 +3,13 @@ import "../index.css";
 import { useSelector } from "react-redux";
 import MovieCard from "./MovieCard";
 
-const NowPlayingMovies = () => {
-  const { nowPlayingMovies } = useSelector((store) => store.movies);
+const PopularMovies = () => {
+  const { popularMovies } = useSelector((store) => store.movies);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = (direction) => {
     const cardWidth = 200; // Adjust based on your card size
-    const maxScroll = (nowPlayingMovies.length - 4) * cardWidth; // Show 5 cards at a time
+    const maxScroll = (popularMovies.length - 4) * cardWidth; // Show 5 cards at a time
 
     if (direction === "left" && scrollPosition > 0) {
       setScrollPosition(scrollPosition - cardWidth);
@@ -20,10 +20,10 @@ const NowPlayingMovies = () => {
   return (
     <>
       <div className="movie-scroller">
-        <h2 className="text-3xl font-bold text-gray-200 mb-1">Trending Movies</h2>
+        <h2 className="text-3xl font-bold text-gray-200 mb-1">Popular Movies</h2>
         <div id="container">
           <div className="scroll-container" style={{ transform: `translateX(-${scrollPosition}px)` }}>
-            {nowPlayingMovies.map((item) => (
+            {popularMovies.map((item) => (
               <MovieCard movie={item} />
             ))}
           </div>
@@ -39,4 +39,4 @@ const NowPlayingMovies = () => {
   );
 };
 
-export default NowPlayingMovies;
+export default PopularMovies;

@@ -1,20 +1,19 @@
 import React from "react";
 import useNowPlaying from "../Custom Hooks/useNowPlaying";
 import "../index.css";
-import { useSelector } from "react-redux";
 import HeroPlayingMovies from "./HeroPlayingMovies";
-import NowPlayingMovies from "./NowPlayingMovies";
+import MovieList from "./MovieList";
+import usePopularMovie from "../Custom Hooks/usePopularMovie";
 
 const Browse = () => {
   // fetching the Now Playing Movies
   useNowPlaying();
-
-  const { nowPlayingMovies } = useSelector((store) => store.movies);
+  usePopularMovie();
 
   return (
     <div id="browse">
       <HeroPlayingMovies />
-      <NowPlayingMovies />
+      <MovieList />
     </div>
   );
 };

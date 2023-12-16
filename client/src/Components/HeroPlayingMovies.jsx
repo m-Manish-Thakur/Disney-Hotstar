@@ -20,10 +20,10 @@ const HeroPlayingMovies = () => {
           him and his country?
         </p>
         <h5 className="mt-6 font-semibold text-lg">Action | Trailer</h5>
-        <button className="mt-8 w-80 py-3 rounded-md bg-gray-600/[.7] text-white text-lg tracking-wider font-semibold">
+        <button className="mt-8 w-80 py-3 rounded-md bg-gray-200/[.7] text-black text-lg tracking-wider font-semibold hover:bg-gray-500/[.8]">
           <i className="fa-solid fa-play mr-2"></i> Watch Now
         </button>
-        <button className="mt-8 px-5 py-3 ml-5 rounded-md bg-gray-600/[.7] text-white text-lg tracking-wider font-semibold">
+        <button className="mt-8 px-5 py-3 ml-5 rounded-md bg-gray-600/[.7] text-white text-lg tracking-wider font-semibold hover:bg-gray-500/[.8]">
           <i className="fa-solid fa-plus"></i>
         </button>
       </div>
