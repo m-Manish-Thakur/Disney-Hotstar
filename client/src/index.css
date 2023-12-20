@@ -250,7 +250,7 @@ h1 {
 }
 #movieDetails #pageContent #casts {
   margin-top: 100px;
-  height: 100vh;
+  /* height: 100vh; */
 }
 #movieDetails #pageContent #casts .container {
   display: flex;
@@ -260,5 +260,8 @@ h1 {
   overflow-x: scroll;
 }
 #movieDetails #pageContent #casts .container::-webkit-scrollbar {
+  display: none;
+}
+#relatedMovies::-webkit-scrollbar {
   display: none;
 }

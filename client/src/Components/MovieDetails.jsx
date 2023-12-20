@@ -3,15 +3,16 @@ import { useParams } from "react-router-dom";
 import "../index.css";
 import BackgroundVideoTrailer from "./BackgroundVideoTrailer";
 import { API_OPTIONS } from "../Constants/constants";
+import RelatedMovies from "./RelatedMovies";
+import MovieCasts from "./MovieCasts";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const movieId = parseInt(id, 10);
   const [movieDetail, setMovieDetails] = useState(null);
-  const [casts, setCasts] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchMovieDetails = async () => {
       try {
         const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, API_OPTIONS);
         const data = await response.json();
@@ -21,21 +22,7 @@ const MovieDetails = () => {
         console.error("Error fetching movie details:", error);
       }
     };
-    const fetchCasts = async () => {
-      try {
-        const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
-          API_OPTIONS
-        );
-        const data = await response.json();
-        console.log(data);
-        setCasts(data);
-      } catch (error) {
-        console.error("Error fetching movie details:", error);
-      }
-    };
-    fetchData();
-    fetchCasts();
+    fetchMovieDetails();
   }, [movieId]);
 
   return movieDetail ? (
@@ -56,29 +43,8 @@ const MovieDetails = () => {
               <i className="fa-solid fa-plus"></i>
             </button>
           </div>
-          <div id="casts">
-            <h1 className="text-2xl font-semibold text-white">Cast</h1>
-
-            <div className="container">
-              {casts ? (
-                casts.cast.map((cast) => (
-                  <>
-                    <div>
-                      <img
-                        src={`https://image.tmdb.org/t/p/original${cast.profile_path}`}
-                        alt="actor"
-                        style={{ minWidth: "150px", borderRadius: "10px" }}
-                      />
-                      <p className="text-gray-300 text-center mt-3">{cast.name}</p>
-                      <p className="text-gray-500 text-sm text-center">{cast.character}</p>
-                    </div>
-                  </>
-                ))
-              ) : (
-                <h1 className="text-2xl font-semibold text-white">Cast</h1>
-              )}
-            </div>
-          </div>
+          <MovieCasts movieId={movieId} />
+          <RelatedMovies id={movieDetail?.id} />
         </div>
       </div>
     </>
