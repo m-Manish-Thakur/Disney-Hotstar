@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../index.css";
 import BackgroundVideoTrailer from "./BackgroundVideoTrailer";
@@ -23,6 +23,8 @@ const MovieDetails = () => {
       }
     };
     fetchMovieDetails();
+    // Scroll to the top when new data is fetched
+    window.scrollTo(0, 0);
   }, [movieId]);
 
   return movieDetail ? (

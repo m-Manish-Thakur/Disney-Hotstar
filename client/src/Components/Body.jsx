@@ -10,6 +10,8 @@ import Login from "./Login";
 import Header from "./Header";
 import UserAccount from "./UserAccount";
 import MovieDetails from "./MovieDetails";
+import MoviesPage from "./MoviesPage";
+import TvShows from "./TvShows";
 
 const Body = () => {
   const dispatch = useDispatch();
@@ -31,6 +33,9 @@ const Body = () => {
           <Route path="/" element={user ? <Browse /> : <Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/movie/:id" element={<MovieDetails />} />
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/tv-shows" element={<TvShows />} />
+
           <Route path="/user/profile" element={<UserAccount />} />
         </Routes>
       </div>

@@ -7,9 +7,8 @@ const MovieList = () => {
   return (
     <div
       style={{
-        paddingTop: "100px",
-        background: "linear-gradient(to top, rgb(15, 16, 20) 90%, transparent)",
-        transform: "translatey(-110px)",
+        background: "rgb(15, 16, 20)",
+        paddingTop: "50px",
       }}
     >
       <NowPlayingMovies />
