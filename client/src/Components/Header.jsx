@@ -16,10 +16,12 @@ const Header = () => {
           <i className="fa-regular fa-circle-user"></i>
           <span>Account</span>
         </div>
-        <div className="flex items-center">
-          <i className="fa-solid fa-magnifying-glass"></i>
-          <span>Search</span>
-        </div>
+        <Link to="/search">
+          <div className="flex items-center">
+            <i className="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
+          </div>
+        </Link>
         <Link to="/">
           <div className="flex items-center">
             <i className="fa-solid fa-house"></i>

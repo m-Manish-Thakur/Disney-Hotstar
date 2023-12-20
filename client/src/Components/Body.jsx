@@ -12,6 +12,7 @@ import UserAccount from "./UserAccount";
 import MovieDetails from "./MovieDetails";
 import MoviesPage from "./MoviesPage";
 import TvShows from "./TvShows";
+import GptSearch from "./GptSearch";
 
 const Body = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const Body = () => {
           <Route path="/movie/:id" element={<MovieDetails />} />
           <Route path="/movies" element={<MoviesPage />} />
           <Route path="/tv-shows" element={<TvShows />} />
-
+          <Route path="/search" element={<GptSearch />} />
           <Route path="/user/profile" element={<UserAccount />} />
         </Routes>
       </div>

@@ -273,10 +273,18 @@ h1 {
   padding: 50px 5vw 50px 10vw;
   background-color: rgba(15, 16, 20, 0.8);
 }
+
 #tvShows .container {
   display: flex;
   flex-wrap: wrap;
   gap: 50px 10px;
   justify-content: space-evenly;
   margin-top: 50px;
+}
+
+/* ##############################   GPT SEARCH PAGE   ############################# */
+#searchPage {
+  width: 100vw;
+  padding: 30px 5vw 50px 12vw;
+  background-color: rgba(15, 16, 20, 0.8);
 }
