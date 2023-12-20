@@ -18,11 +18,10 @@ const Body = () => {
   useEffect(() => {
     const token = Cookies.get("token");
     const userInfoString = Cookies.get("user");
+    // Check if userInfoString is not undefined and is a non-empty string before parsing
     const userInfo = userInfoString ? JSON.parse(userInfoString) : null;
     dispatch(setUser({ token: token, user: userInfo }));
   }, []);
-
-  console.log(user);
 
   return (
     <BrowserRouter>

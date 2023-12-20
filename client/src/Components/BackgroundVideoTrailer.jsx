@@ -11,7 +11,6 @@ const BackgroundVideoTrailer = ({ id }) => {
       const data = await response.json();
       const trailerData = data.results.filter((movie) => movie.type === "Trailer");
       setTrailer(trailerData);
-      console.log(trailerData[0]);
     } catch (error) {
       console.error("Error fetching trailer:", error);
     }
@@ -19,17 +18,23 @@ const BackgroundVideoTrailer = ({ id }) => {
 
   useEffect(() => {
     fetchTrailer();
-  }, []);
+    // Cleanup function
+    return () => {
+      setTrailer(null);
+    };
+  }, [id]);
 
   return (
-    <div>
+    <div key={id}>
       {trailer ? (
         <iframe
-          src={`https://www.youtube.com/embed/${trailer[0]?.key}?autoplay=1&loop=1&playlist=${trailer[0]?.key}&controls=0&rel=0`}
+          className="w-screen aspect-video -translate-y-20"
+          src={`https://www.youtube.com/embed/${
+            trailer[0]?.key
+          }?autoplay=1&loop=1&controls=0&rel=0&mute=1&random=${Math.random()}`}
           title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       ) : (
         <div className="w-full height-full flex justify-center items-center" style={{ height: "100vh" }}>

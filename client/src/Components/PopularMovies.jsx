@@ -20,7 +20,7 @@ const PopularMovies = () => {
   return (
     <>
       <div className="movie-scroller">
-        <h2 className="text-3xl font-bold text-gray-200 mb-1">Popular Movies</h2>
+        <h2 className="text-xl font-bold text-gray-200 mb-1  tracking-wide">Popular Movies</h2>
         <div id="container">
           <div className="scroll-container" style={{ transform: `translateX(-${scrollPosition}px)` }}>
             {popularMovies.map((item) => (

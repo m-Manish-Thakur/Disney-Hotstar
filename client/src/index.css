@@ -34,7 +34,7 @@ h1 {
 #nav i {
   padding: 25px 5px;
   color: rgb(175, 175, 175);
-  font-size: 18px;
+  font-size: 17px;
 }
 #nav span {
   width: 0;
@@ -127,7 +127,7 @@ h1 {
 #heroMovie .content {
   width: 400px;
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 140px;
   color: white;
   z-index: 1;
@@ -145,8 +145,7 @@ h1 {
 /* ##########################  MOVIE Scroller  ############################ */
 .movie-scroller {
   width: 100vw;
-  padding: 50px 5vw 50px 10vw;
-  background: rgba(20, 20, 32, 0.8);
+  padding: 0 5vw 0 10vw;
   overflow: hidden;
   position: relative;
 }
@@ -230,18 +229,36 @@ h1 {
   position: relative;
 }
 #movieDetails iframe {
-  min-width: 100vw;
+  width: 100vw;
   min-height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 1;
+  z-index: 1;
   object-fit: cover;
   background-color: aliceblue;
 }
+#movieDetails #pageContent {
+  position: absolute;
+  width: 100vw;
+  padding: 18% 8vw 20px 10vw;
+  z-index: 10;
+  background: linear-gradient(to top, rgb(15, 16, 20) 55%, transparent);
+}
 #movieDetails .content {
   width: 400px;
-  position: absolute;
-  top: 40%;
-  left: 140px;
   color: white;
-  z-index: 1;
+}
+#movieDetails #pageContent #casts {
+  margin-top: 100px;
+  height: 100vh;
+}
+#movieDetails #pageContent #casts .container {
+  display: flex;
+  grid-gap: 20px;
+  width: 100%;
+  margin-top: 25px;
+  overflow-x: scroll;
+}
+#movieDetails #pageContent #casts .container::-webkit-scrollbar {
+  display: none;
 }

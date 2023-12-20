@@ -5,21 +5,11 @@ import Cookies from "js-cookie";
 import axois from "axios";
 import "../index.css";
 import { validateFormData } from "../Utils/validate";
-
-const Login = () => {
+const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
 
-  const dispatch = useDispatch();
-  const { user, token } = useSelector((store) => store.user);
-
-  useEffect(() => {
-    const token = Cookies.get("token");
-    const userInfoString = Cookies.get("user");
-    const userInfo = userInfoString ? JSON.parse(userInfoString) : null;
-    dispatch(setUser({ token: token, user: userInfo }));
-  }, []);
-
+  const username = useRef();
   const email = useRef();
   const password = useRef();
 
@@ -45,11 +35,15 @@ const Login = () => {
         // Save the token and user data in Redux store
         dispatch(setUser({ user: response.data.user, token: response.data.token }));
 
-        // Store token & user in cookie
-        Cookies.set("token", response.data.token, { expires: 1 });
+        // Store token in cookie
+        Cookies.set("token", response.data.token, { expires: 1 }); // Set the expiration date as needed
+
+        // Store user info in cookie (example: converting user object to JSON)
         Cookies.set("user", JSON.stringify(response.data.user), { expires: 1 });
 
+        // Force reload (bypass cache)
         window.location.reload(true);
+
         email.current.value = "";
         password.current.value = "";
       } catch (error) {
@@ -71,16 +65,56 @@ const Login = () => {
           setErrorMsg("Server Error, Login After a time");
         }
       }
+      // #######################   USER REGISTRATION   ##################################
+
+      try {
+        const response = await axois.post(
+          "http://localhost:8000/user/register",
+          {
+            username: username.current.value,
+            email: email.current.value,
+            password: password.current.value,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        // Store token in cookie
+        Cookies.set("token", response.data.token, { expires: 1 }); // Set the expiration date as needed
+
+        // Store user info in cookie (example: converting user object to JSON)
+        Cookies.set("user", JSON.stringify(response.data.user), { expires: 1 });
+
+        username.current.value = "";
+        email.current.value = "";
+        password.current.value = "";
+        setShowPassword(false);
+        setIsSignIn(true);
+      } catch (error) {
+        if (error.response && error.response.data && error.response.data.error === "User already exists") {
+          setErrorMsg("User Already Exist, Login Please");
+          username.current.value = "";
+          email.current.value = "";
+          password.current.value = "";
+          setShowPassword(false);
+        } else {
+          setErrorMsg("Server Error, Login After a time");
+        }
+      }
     }
   };
 
   return (
     <div id="logInCon">
       <form action="#" onSubmit={(e) => e.preventDefault()}>
-        <h2 className="font-bold text-3xl text-white mb-2">Log In</h2>
+        <h2 className="font-bold text-3xl text-white mb-2">Sign Up</h2>
         <p className="text-base text-gray-300 text-left mb-3  tracking-wide">
           to enjoy movies, sports, web series etc.
         </p>
+        <input ref={username} type="text" placeholder="Full Name" required />
         <input ref={email} type="email" placeholder="Email Address" required />
         <div className="relative">
           <input ref={password} type={showPassword ? "text" : "password"} placeholder="Password" required />
@@ -95,14 +129,14 @@ const Login = () => {
         </div>
         <p className=" text-red-500 text-sm font-semibold pt-4">{errorMsg}</p>
         <button type="submit" onClick={handleformSubmit}>
-          Log In
+          Sign Up
         </button>
         <p className="text-base text-gray-200 font-semibold text-left mt-8 cursor-pointer">
-          New to Disney+ Hotstar? Sign Up now
+          Already registered? Log In now
         </p>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Signup;
