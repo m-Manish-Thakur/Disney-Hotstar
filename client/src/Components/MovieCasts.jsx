@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { API_OPTIONS } from "../Constants/constants";
+import { useSelector } from "react-redux";
+import lang from "../Constants/language";
 
 const MovieCasts = ({ movieId }) => {
   const [casts, setCasts] = useState(null);
+  const langKey = useSelector((store) => store.config.lang);
+
   useEffect(() => {
     const fetchCasts = async () => {
       try {
@@ -21,7 +25,7 @@ const MovieCasts = ({ movieId }) => {
   }, [movieId]);
   return (
     <div id="casts">
-      <h1 className="text-2xl font-semibold text-white  tracking-wide">Cast</h1>
+      <h1 className="text-2xl font-semibold text-white  tracking-wide">{lang[langKey].cast}</h1>
 
       <div className="container">
         {casts ? (

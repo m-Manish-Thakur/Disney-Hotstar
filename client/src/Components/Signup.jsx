@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setUser, clearUser } from "../Utils/userSlice";
-import Cookies from "js-cookie";
+import { Link, useNavigate } from "react-router-dom";
 import axois from "axios";
 import "../index.css";
 import { validateFormData } from "../Utils/validate";
+
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
+  const navigate = useNavigate();
 
   const username = useRef();
   const email = useRef();
@@ -18,55 +18,7 @@ const Signup = () => {
     setErrorMsg(msg);
 
     if (msg === null) {
-      // #######################   USER LOGIN   ##################################
-      try {
-        const response = await axois.post(
-          "http://localhost:8000/user/login",
-          {
-            email: email.current.value,
-            password: password.current.value,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        // Save the token and user data in Redux store
-        dispatch(setUser({ user: response.data.user, token: response.data.token }));
-
-        // Store token in cookie
-        Cookies.set("token", response.data.token, { expires: 1 }); // Set the expiration date as needed
-
-        // Store user info in cookie (example: converting user object to JSON)
-        Cookies.set("user", JSON.stringify(response.data.user), { expires: 1 });
-
-        // Force reload (bypass cache)
-        window.location.reload(true);
-
-        email.current.value = "";
-        password.current.value = "";
-      } catch (error) {
-        if (error.response && error.response.data && error.response.data.error === "User doesn't exists") {
-          setErrorMsg("User doesn't exists, Register Now");
-          email.current.value = "";
-          password.current.value = "";
-          setShowPassword(false);
-        } else if (
-          error.response &&
-          error.response.data &&
-          error.response.data.error === "Email or password is invalid"
-        ) {
-          setErrorMsg("Email or password is invalid");
-          email.current.value = "";
-          password.current.value = "";
-          setShowPassword(false);
-        } else {
-          setErrorMsg("Server Error, Login After a time");
-        }
-      }
       // #######################   USER REGISTRATION   ##################################
-
       try {
         const response = await axois.post(
           "http://localhost:8000/user/register",
@@ -81,25 +33,17 @@ const Signup = () => {
             },
           }
         );
-
-        // Store token in cookie
-        Cookies.set("token", response.data.token, { expires: 1 }); // Set the expiration date as needed
-
-        // Store user info in cookie (example: converting user object to JSON)
-        Cookies.set("user", JSON.stringify(response.data.user), { expires: 1 });
-
         username.current.value = "";
         email.current.value = "";
         password.current.value = "";
-        setShowPassword(false);
-        setIsSignIn(true);
+        // Redirect to the login page after successful signup
+        navigate("/user/login");
       } catch (error) {
         if (error.response && error.response.data && error.response.data.error === "User already exists") {
           setErrorMsg("User Already Exist, Login Please");
           username.current.value = "";
           email.current.value = "";
           password.current.value = "";
-          setShowPassword(false);
         } else {
           setErrorMsg("Server Error, Login After a time");
         }
@@ -131,9 +75,12 @@ const Signup = () => {
         <button type="submit" onClick={handleformSubmit}>
           Sign Up
         </button>
-        <p className="text-base text-gray-200 font-semibold text-left mt-8 cursor-pointer">
-          Already registered? Log In now
-        </p>
+
+        <Link to="/user/login">
+          <p className="text-base text-gray-200 font-semibold text-left mt-8 cursor-pointer">
+            Already registered? Log In now
+          </p>
+        </Link>
       </form>
     </div>
   );

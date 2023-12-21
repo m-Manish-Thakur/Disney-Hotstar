@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser, clearUser } from "../Utils/userSlice";
 import Cookies from "js-cookie";
@@ -48,8 +49,8 @@ const Login = () => {
         // Store token & user in cookie
         Cookies.set("token", response.data.token, { expires: 1 });
         Cookies.set("user", JSON.stringify(response.data.user), { expires: 1 });
-
-        window.location.reload(true);
+        // Redirect to the home page after successful login
+        window.location.href = "/";
         email.current.value = "";
         password.current.value = "";
       } catch (error) {
@@ -97,9 +98,11 @@ const Login = () => {
         <button type="submit" onClick={handleformSubmit}>
           Log In
         </button>
-        <p className="text-base text-gray-200 font-semibold text-left mt-8 cursor-pointer">
-          New to Disney+ Hotstar? Sign Up now
-        </p>
+        <Link to="/user/signup">
+          <p className="text-base text-gray-200 font-semibold text-left mt-8 cursor-pointer">
+            New to Disney+ Hotstar? Sign Up now
+          </p>
+        </Link>
       </form>
     </div>
   );

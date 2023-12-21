@@ -1,8 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { changeLanguage } from "../Utils/configSlice";
+import lang from "../Constants/language";
+
 const Header = () => {
   const { user, token } = useSelector((store) => store.user);
+  const langKey = useSelector((store) => store.config.lang);
+  const dispatch = useDispatch();
+
+  const handleLangChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+    console.log(e.target.value);
+  };
 
   return (
     <div className="fixed top-0 left-0 py-8 px-5 h-full flex flex-col z-50" id="header">
@@ -11,40 +21,50 @@ const Header = () => {
         alt="logo"
         className="w-20"
       />
-      <nav className="flex flex-col justify-center items-start mt-16" id="nav">
-        <div className="flex items-center justify-start">
-          <i className="fa-regular fa-circle-user"></i>
-          <span>Account</span>
-        </div>
-        <Link to="/search">
-          <div className="flex items-center">
-            <i className="fa-solid fa-magnifying-glass"></i>
-            <span>Search</span>
+      {user ? (
+        <nav className="flex flex-col justify-center items-start mt-16" id="nav">
+          <div className="flex items-center justify-start">
+            <i className="fa-regular fa-circle-user"></i>
+            <span>{lang[langKey].account}</span>
           </div>
-        </Link>
-        <Link to="/">
-          <div className="flex items-center">
-            <i className="fa-solid fa-house"></i>
-            <span>Home</span>
+          <Link to="/search">
+            <div className="flex items-center">
+              <i className="fa-solid fa-magnifying-glass"></i>
+              <span>{lang[langKey].search}</span>
+            </div>
+          </Link>
+          <Link to="/">
+            <div className="flex items-center">
+              <i className="fa-solid fa-house"></i>
+              <span>{lang[langKey].home}</span>
+            </div>
+          </Link>
+          <Link to="/movies">
+            <div className="flex items-center">
+              <i className="fa-solid fa-film"></i>
+              <span>{lang[langKey].movies}</span>
+            </div>
+          </Link>
+          <div className="flex items-center relative">
+            <i className="fa-solid fa-language"></i>
+            <span>
+              <select className="bg-gray-600 rounded-lg outline-none overflow-hidden" onChange={handleLangChange}>
+                <option value="en" selected>
+                  English
+                </option>
+                <option value="hindi">Hindi</option>
+                <option value="spanish">Spanish</option>
+              </select>
+            </span>
           </div>
-        </Link>
-        <Link to="/tv-shows">
           <div className="flex items-center">
-            <i className="fa-solid fa-tv"></i>
-            <span>TV</span>
+            <i className="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>{lang[langKey].logout}</span>
           </div>
-        </Link>
-        <Link to="/movies">
-          <div className="flex items-center">
-            <i class="fa-solid fa-film"></i>
-            <span>Movies</span>
-          </div>
-        </Link>
-        <div className="flex items-center">
-          <i className="fa-solid fa-arrow-right-from-bracket"></i>
-          <span>Logout</span>
-        </div>
-      </nav>
+        </nav>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

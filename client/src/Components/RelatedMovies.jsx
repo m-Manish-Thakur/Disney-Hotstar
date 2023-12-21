@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { API_OPTIONS } from "../Constants/constants";
+import lang from "../Constants/language";
 import MovieCard from "./MovieCard";
+import { useSelector } from "react-redux";
 import ShimmerUI from "./ShimmerUI";
 
 const RelatedMovies = ({ id }) => {
   const [relatedMovies, setRelatedMovies] = useState(null);
+  const langKey = useSelector((store) => store.config.lang);
+
   useEffect(() => {
     const fetchRelated = async () => {
       const response = await fetch(
@@ -19,7 +23,7 @@ const RelatedMovies = ({ id }) => {
   }, [id]);
   return (
     <div>
-      <h1 className="text-2xl font-semibold text-white mt-10 tracking-wide">More Like This</h1>
+      <h1 className="text-2xl font-semibold text-white mt-10 tracking-wide">{lang[langKey].likeThis}</h1>
       <div className="flex overflow-scroll min-w-full py-12 gap-3 pl-4" id="relatedMovies">
         {relatedMovies ? (
           relatedMovies.map((movie) => <MovieCard movie={movie} />)
