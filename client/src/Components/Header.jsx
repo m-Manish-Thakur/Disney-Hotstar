@@ -49,9 +49,7 @@ const Header = () => {
             <i className="fa-solid fa-language"></i>
             <span>
               <select className="bg-gray-600 rounded-lg outline-none overflow-hidden" onChange={handleLangChange}>
-                <option value="en" selected>
-                  English
-                </option>
+                <option value="en">English</option>
                 <option value="hindi">Hindi</option>
                 <option value="spanish">Spanish</option>
               </select>
