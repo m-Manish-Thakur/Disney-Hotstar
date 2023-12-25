@@ -38,7 +38,7 @@ const MovieDetails = () => {
             </h4>
             <p className="mt-4 text-base text-gray-200 tracking-wider">{movieDetail.overview.substring(0, 180)}...</p>
             <h5 className="mt-6 font-semibold text-lg">{movieDetail.genres.map((genre) => genre.name).join(" | ")}</h5>
-            <button className="mt-8 w-80 py-3 rounded-md bg-gray-200/[.7] text-black text-lg tracking-wider font-semibold hover:bg-gray-500/[.8]">
+            <button className="mt-8 w-80 py-3 rounded-md bg-gray-200/[.7] text-black text-lg tracking-wider font-semibold hover:bg-gray-500/[.8] first">
               <i className="fa-solid fa-play mr-2"></i> Watch Now
             </button>
             <button className="mt-8 px-5 py-3 ml-5 rounded-md bg-gray-600/[.7] text-white text-lg tracking-wider font-semibold hover:bg-gray-500/[.8]">

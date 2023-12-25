@@ -14,6 +14,7 @@ import MoviesPage from "./MoviesPage";
 import TvShows from "./TvShows";
 import GptSearch from "./GptSearch";
 import Signup from "./Signup";
+import Footer from "./Footer";
 
 const Body = () => {
   const dispatch = useDispatch();

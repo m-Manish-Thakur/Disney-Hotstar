@@ -58,6 +58,61 @@ h1 {
   color: aliceblue;
   font-size: 18px;
 }
+#Header_Mobile {
+  display: none;
+}
+@media screen and (max-width: 700px) {
+  #Header_Mobile {
+    width: 100%;
+    position: fixed;
+    display: block;
+    z-index: 55;
+    padding: 10px 15px;
+    top: 0;
+    left: 0;
+    background-color: rgb(16, 16, 16);
+  }
+  #Header_Mobile .responsiveLogo {
+    display: block;
+    height: 45px;
+  }
+  #header {
+    padding: 15px 0;
+    position: fixed;
+    bottom: -1px;
+    width: 100vw;
+    left: 0;
+    height: 60px;
+    top: auto;
+    background: rgb(37, 40, 54);
+  }
+  #header img {
+    display: none;
+  }
+  #header #nav {
+    display: flex;
+    margin-top: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0;
+  }
+  #header #nav .logout {
+    display: none;
+  }
+  #header #nav i {
+    font-size: 20px;
+
+    padding-top: 6px;
+  }
+  #header #nav div {
+    flex-direction: column;
+    justify-content: center;
+  }
+  #header #nav span {
+    display: none;
+  }
+}
+
 #logInCon {
   background-size: cover;
   background-repeat: no-repeat;
@@ -117,7 +172,7 @@ h1 {
   background-size: cover;
 }
 #heroMovie video {
-  min-width: 100vw;
+  width: 100vw;
   height: 100vh;
   position: absolute;
   top: 1;
@@ -131,6 +186,28 @@ h1 {
   left: 140px;
   color: white;
   z-index: 1;
+}
+
+@media screen and (max-width: 650px) {
+  #heroMovie {
+    width: 100vw;
+    height: auto;
+    position: relative;
+    padding: 80px 10px 0px 10px;
+    background: rgb(15, 16, 20);
+  }
+  #heroMovie video {
+    background-color: rgba(28, 31, 31, 0.589);
+    width: 100%;
+    height: 45vw;
+    position: relative;
+    top: 1px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  #heroMovie .content {
+    display: none;
+  }
 }
 
 /* ###########################  Now Playing Movie Page  ################################# */
@@ -150,41 +227,18 @@ h1 {
   position: relative;
 }
 #container {
-  width: 98%;
-  padding: 40px 20px 40px 20px;
-  overflow: hidden;
-  margin-left: 50px;
-}
-.scroll-container {
-  margin: auto;
+  max-width: 98%;
+  padding: 40px 20px 40px 10px;
+  overflow-x: scroll;
   display: flex;
-  grid-gap: 10px;
-  transition: transform 0.5s ease; /* Add smooth transition for scrolling */
+  gap: 10px;
 }
-#button {
-  position: absolute;
-  top: 52%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.7);
-  border: none;
-  padding: 15px 10px;
-  font-size: 25px;
-  cursor: pointer;
-  border-radius: 5px;
+/* width */
+#container::-webkit-scrollbar {
+  display: none;
 }
 
-#button:hover {
-  background: rgba(255, 255, 255, 1);
-}
-
-#button:first-child {
-  left: 10px;
-}
-
-#button:last-child {
-  right: 10px;
-}
-
+/* ################  Movie Card  ######################### */
 #movieCard {
   width: 185px;
   height: 265px;
@@ -221,6 +275,41 @@ h1 {
   z-index: 100;
 }
 
+@media screen and (max-width: 700px) {
+  .movie-scroller {
+    width: 98%;
+    padding: 0 1vw 0 1vw;
+    overflow: hidden;
+    position: relative;
+  }
+  .movie-scroller h2 {
+    margin-left: 10px;
+    font-family: "poppins";
+    font-weight: 500;
+    font-size: 19px;
+    letter-spacing: 0.2px;
+  }
+  #container {
+    max-width: 100%;
+    padding: 15px 10px 25px 10px;
+    overflow-x: scroll;
+    display: flex;
+    gap: 5px;
+  }
+  #movieCard {
+    width: 110px;
+    height: 160px;
+    margin: 0 5px;
+  }
+  #movieCard:hover {
+    transform: scale(1.3, 1.3);
+    cursor: pointer;
+    transition: 0.3s linear;
+  }
+  #movieCard .cardContent {
+    display: none;
+  }
+}
 /* ########################   Movie Details  ########################################## */
 
 #movieDetails {
@@ -266,25 +355,126 @@ h1 {
   display: none;
 }
 
-/* #######################   TV Shows  ################################ */
+@media screen and (max-width: 700px) {
+  #movieDetails {
+    width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    padding-top: 50px;
+  }
+  #movieDetails iframe {
+    padding-top: 10px;
+    width: 100vw;
+    min-height: 55vw;
+    position: fixed;
+    top: 1;
+    z-index: 1;
+    transform: none;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background-color: aliceblue;
+  }
+  #movieDetails #pageContent {
+    padding: 60vw 4vw 20px 4vw;
+    z-index: 10;
+    background: linear-gradient(to top, rgb(15, 16, 20) 73%, transparent);
+  }
+  #movieDetails .content {
+    width: 100%;
+    color: white;
+  }
+  #movieDetails .content .first {
+    width: 230px;
+  }
+  #movieDetails #pageContent #casts {
+    margin-top: 50px;
+  }
 
-#tvShows {
-  width: 100vw;
-  padding: 50px 5vw 50px 10vw;
-  background-color: rgba(15, 16, 20, 0.8);
-}
-
-#tvShows .container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px 10px;
-  justify-content: space-evenly;
-  margin-top: 50px;
+  #movieDetails #pageContent h1 {
+    font-size: 19px;
+    font-weight: 500;
+  }
+  #movieDetails #pageContent #casts .container {
+    grid-gap: 10px;
+    margin-top: 15px;
+  }
+  #movieDetails #pageContent #casts .img {
+    min-width: 100px;
+    border-radius: 5px;
+  }
+  #movieDetails #pageContent #casts p {
+    font-size: 10px;
+  }
+  #movieDetails #pageContent #casts .container::-webkit-scrollbar {
+    display: none;
+  }
+  #relatedMovies {
+    padding: 20px 10px 10px 0;
+  }
 }
 
 /* ##############################   GPT SEARCH PAGE   ############################# */
 #searchPage {
   width: 100vw;
-  padding: 30px 5vw 50px 12vw;
-  background-color: rgba(15, 16, 20, 0.8);
+  padding: 80px 2vw 50px 2vw;
+  background-color: rgba(15, 16, 20, 0.7);
+}
+#searchPage h1 {
+  color: aliceblue;
+  text-align: center;
+}
+#searchPage form input {
+  font-size: 17px;
+}
+#searchPage form button {
+  font-size: 17px;
+}
+
+/* ##############################  FOOTER  ############################ */
+
+#footer {
+  width: 100vw;
+  background-color: rgb(18, 23, 31);
+  padding: 50px 8vw;
+}
+
+#footer p {
+  font-size: 20px;
+  text-align: center;
+  font-family: "dm sans";
+  letter-spacing: 0.5px;
+  color: aliceblue;
+}
+#footer .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+#footer .buttons button {
+  padding: 10px 20px;
+  background-color: rgb(0, 115, 175);
+  color: aliceblue;
+  font-family: "dm sans";
+  font-weight: 500;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+}
+#footer .buttons button:nth-child(2) {
+  background-color: rgb(0, 0, 0);
+}
+
+#footer .buttons button:nth-child(3) {
+  background-color: crimson;
+}
+
+@media screen and (max-width: 520px) {
+  #footer {
+    padding: 50px 3vw 100px 3vw;
+  }
+  #footer .buttons {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 }

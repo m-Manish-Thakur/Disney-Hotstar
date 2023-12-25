@@ -9,4 +9,4 @@ export const API_OPTIONS = {
 
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500/";
 
-export const OPENAI_API_KEY = "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";
+export const OPENAI_API_KEY = "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";

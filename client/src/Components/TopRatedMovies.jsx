@@ -22,20 +22,12 @@ const TopRatedMovies = () => {
   return (
     <>
       <div className="movie-scroller">
-        <h2 className="text-xl font-bold text-gray-200 mb-1  tracking-wide">{lang[langKey].topRated}</h2>
+        <h2 className="text-xl font-bold text-gray-200 mb-1 tracking-wide">{lang[langKey].topRated}</h2>
         <div id="container">
-          <div className="scroll-container" style={{ transform: `translateX(-${scrollPosition}px)` }}>
-            {topRatedMovies.map((item) => (
-              <MovieCard movie={item} />
-            ))}
-          </div>
+          {topRatedMovies.map((item) => (
+            <MovieCard movie={item} />
+          ))}
         </div>
-        <button id="button" className="bg-white text-black p-2 text-center" onClick={() => handleScroll("left")}>
-          <i className="fa-solid fa-chevron-left"></i>
-        </button>
-        <button id="button" className="bg-white text-black p-2 text-center" onClick={() => handleScroll("right")}>
-          <i className="fa-solid fa-chevron-right"></i>
-        </button>
       </div>
     </>
   );

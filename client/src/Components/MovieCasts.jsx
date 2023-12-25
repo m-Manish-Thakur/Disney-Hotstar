@@ -35,7 +35,8 @@ const MovieCasts = ({ movieId }) => {
                 <img
                   src={`https://image.tmdb.org/t/p/original${cast.profile_path}`}
                   alt="actor"
-                  style={{ minWidth: "150px", borderRadius: "10px" }}
+                  className="img"
+                  style={{ width: "150px", borderRadius: "10px" }}
                 />
                 <p className="text-gray-300 text-center mt-3">{cast.name}</p>
                 <p className="text-gray-500 text-sm text-center">{cast.character}</p>
