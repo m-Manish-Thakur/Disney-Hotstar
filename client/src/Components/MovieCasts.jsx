@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { API_OPTIONS } from "../Constants/constants";
 import { useSelector } from "react-redux";
 import lang from "../Constants/language";
+import "../index.css";
 
 const MovieCasts = ({ movieId }) => {
   const [casts, setCasts] = useState(null);
@@ -26,7 +27,6 @@ const MovieCasts = ({ movieId }) => {
   return (
     <div id="casts">
       <h1 className="text-2xl font-semibold text-white  tracking-wide">{lang[langKey].cast}</h1>
-
       <div className="container">
         {casts ? (
           casts.cast.map((cast) => (
@@ -36,7 +36,7 @@ const MovieCasts = ({ movieId }) => {
                   src={`https://image.tmdb.org/t/p/original${cast.profile_path}`}
                   alt="actor"
                   className="img"
-                  style={{ width: "150px", borderRadius: "10px" }}
+                  style={{ maxWidth: "150px", borderRadius: "10px" }}
                 />
                 <p className="text-gray-300 text-center mt-3">{cast.name}</p>
                 <p className="text-gray-500 text-sm text-center">{cast.character}</p>
@@ -44,7 +44,7 @@ const MovieCasts = ({ movieId }) => {
             </>
           ))
         ) : (
-          <h1 className="text-2xl font-semibold text-white">Cast</h1>
+          <></>
         )}
       </div>
     </div>

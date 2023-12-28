@@ -5,6 +5,7 @@ import BackgroundVideoTrailer from "./BackgroundVideoTrailer";
 import { API_OPTIONS } from "../Constants/constants";
 import RelatedMovies from "./RelatedMovies";
 import MovieCasts from "./MovieCasts";
+import Footer from "./Footer";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -47,6 +48,7 @@ const MovieDetails = () => {
           </div>
           <MovieCasts movieId={movieId} />
           <RelatedMovies id={movieDetail?.id} />
+          <Footer />
         </div>
       </div>
     </>
