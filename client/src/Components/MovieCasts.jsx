@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { API_OPTIONS } from "../Constants/constants";
+import { API_OPTIONS } from "../../Constants/constants";
 import { useSelector } from "react-redux";
-import lang from "../Constants/language";
+import lang from "../../Constants/language";
 import "../index.css";
 
 const MovieCasts = ({ movieId }) => {

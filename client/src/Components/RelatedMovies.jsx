@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { API_OPTIONS } from "../Constants/constants";
-import lang from "../Constants/language";
+import lang from "../../Constants/language";
 import MovieCard from "./MovieCard";
 import { useSelector } from "react-redux";
 import ShimmerUI from "./ShimmerUI";
+import { API_OPTIONS } from "../../Constants/constants";
 
 const RelatedMovies = ({ id }) => {
   const [relatedMovies, setRelatedMovies] = useState(null);

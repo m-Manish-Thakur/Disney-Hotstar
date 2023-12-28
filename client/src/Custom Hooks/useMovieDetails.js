@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { API_OPTIONS } from "../Constants/constants";
+import { API_OPTIONS } from "../../Constants/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addMovieDetails } from "../Utils/movieSlice";
 
@@ -8,10 +8,6 @@ const useMovieDetails = (movie_id) => {
   const { movieDetails } = useSelector((store) => store.movies);
 
   const fetchMovieDetails = async () => {
-    // const response = await fetch(`https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`, API_OPTIONS);
-    // const data = await response.json();
-    // console.log(data);
-    // return data;
     fetch("https://api.themoviedb.org/3/movie/466420?language=en-US", API_OPTIONS)
       .then((response) => response.json())
       .then((response) => {
