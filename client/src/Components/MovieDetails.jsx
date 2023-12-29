@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../index.css";
 import BackgroundVideoTrailer from "./BackgroundVideoTrailer";
-import { API_OPTIONS } from "../../Constants/constants";
+import { API_OPTIONS } from "../Constants/constants";
 import RelatedMovies from "./RelatedMovies";
 import MovieCasts from "./MovieCasts";
 import Footer from "./Footer";

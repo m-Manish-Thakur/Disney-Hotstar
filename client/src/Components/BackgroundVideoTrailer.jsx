@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { API_OPTIONS } from "../../Constants/constants";
+import { API_OPTIONS } from "../Constants/constants";
 import "../index.css";
 
 const BackgroundVideoTrailer = ({ id }) => {

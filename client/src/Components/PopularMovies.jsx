@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../index.css";
 import { useSelector } from "react-redux";
 import MovieCard from "./MovieCard";
-import lang from "../../Constants/language";
+import lang from "../Constants/language";
 
 const PopularMovies = () => {
   const { popularMovies } = useSelector((store) => store.movies);
