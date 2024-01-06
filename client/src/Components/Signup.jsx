@@ -21,7 +21,7 @@ const Signup = () => {
       // #######################   USER REGISTRATION   ##################################
       try {
         const response = await axois.post(
-          "http://localhost:8000/user/register",
+          "https://hotstar-5dl1.onrender.com/user/register",
           {
             username: username.current.value,
             email: email.current.value,
