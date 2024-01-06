@@ -32,7 +32,7 @@ const Login = () => {
       // #######################   USER LOGIN   ##################################
       try {
         const response = await axois.post(
-          "http://localhost:8000/user/login",
+          "https://hotstar-5dl1.onrender.com/user/login",
           {
             email: email.current.value,
             password: password.current.value,
