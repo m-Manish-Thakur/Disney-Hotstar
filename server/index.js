@@ -10,7 +10,7 @@ dotenv.config();
 // Routes
 const userRoute = require("./Routes/User");
 
-app.use(cors({ origin: 'https://hotstar-clone-manish.netlify.app' }));
+app.use(cors({ origin: 'https://disney-hotstar-ivory.vercel.app' }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
