@@ -18,7 +18,7 @@ import Footer from "./Footer";
 
 const Body = () => {
   const dispatch = useDispatch();
-  const { user, token } = useSelector((store) => store.user);
+  const { user } = useSelector((store) => store.user);
 
   useEffect(() => {
     const token = Cookies.get("token");
@@ -38,7 +38,6 @@ const Body = () => {
           <Route path="/user/signup" element={<Signup />} />
           <Route path="/movie/:id" element={<MovieDetails />} />
           <Route path="/movies" element={<MoviesPage />} />
-          <Route path="/tv-shows" element={<TvShows />} />
           <Route path="/search" element={<GptSearch />} />
           <Route path="/user/profile" element={<UserAccount />} />
         </Routes>

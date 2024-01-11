@@ -17,7 +17,6 @@ const RelatedMovies = ({ id }) => {
       );
       const data = await response.json();
       setRelatedMovies(data.results);
-      console.log(data);
     };
     fetchRelated();
   }, [id]);
@@ -26,7 +25,7 @@ const RelatedMovies = ({ id }) => {
       <h1 className="text-2xl font-semibold text-white mt-10 tracking-wide">{lang[langKey].likeThis}</h1>
       <div className="flex overflow-scroll min-w-full py-12 gap-3 pl-4" id="relatedMovies">
         {relatedMovies ? (
-          relatedMovies.map((movie) => <MovieCard movie={movie} />)
+          relatedMovies.map((movie) => <MovieCard movie={movie} key={movie?.id} />)
         ) : (
           <div className="flex gap-10">
             <ShimmerUI />

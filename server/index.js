@@ -9,8 +9,10 @@ dotenv.config();
 
 // Routes
 const userRoute = require("./Routes/User");
+const watchlistRoute = require("./Routes/WatchList");
 
-app.use(cors({ origin: "https://disney-hotstar-ivory.vercel.app" }));
+app.use(cors({ origin: "http://localhost:3000" }));
+// app.use(cors({ origin: "https://disney-hotstar-ivory.vercel.app" }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -19,8 +21,8 @@ app.get("/", (req, res) => {
 });
 
 // Routes
-
 app.use("/user", userRoute);
+app.use("/api", watchlistRoute);
 
 // Ports and Database Connect
 

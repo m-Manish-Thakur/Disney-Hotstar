@@ -16,7 +16,6 @@ const MovieCasts = ({ movieId }) => {
           API_OPTIONS
         );
         const data = await response.json();
-        console.log(data);
         setCasts(data);
       } catch (error) {
         console.error("Error fetching movie details:", error);
@@ -31,7 +30,7 @@ const MovieCasts = ({ movieId }) => {
         {casts ? (
           casts.cast.map((cast) => (
             <>
-              <div>
+              <div key={cast?.id}>
                 <img
                   src={`https://image.tmdb.org/t/p/original${cast.profile_path}`}
                   alt="actor"

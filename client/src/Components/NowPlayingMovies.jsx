@@ -14,7 +14,7 @@ const NowPlayingMovies = () => {
         <h2 className="text-xl font-bold text-gray-200 mb-1 tracking-wide">{lang[langKey].trending}</h2>
         <div id="container">
           {nowPlayingMovies.map((item) => (
-            <MovieCard movie={item} />
+            <MovieCard movie={item} key={item?.id} />
           ))}
         </div>
       </div>

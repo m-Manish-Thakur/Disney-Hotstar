@@ -5,6 +5,7 @@ import { IMG_CDN_URL } from "../Constants/constants";
 
 const MovieCard = (movie) => {
   const [hoverCard, setHoverCard] = useState(false);
+
   // Check if poster_path is available
   const hasPoster = movie.movie.poster_path;
 

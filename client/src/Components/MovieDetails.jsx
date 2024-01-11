@@ -1,23 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "../index.css";
 import BackgroundVideoTrailer from "./BackgroundVideoTrailer";
 import { API_OPTIONS } from "../Constants/constants";
 import RelatedMovies from "./RelatedMovies";
 import MovieCasts from "./MovieCasts";
 import Footer from "./Footer";
+import axios from "axios";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const movieId = parseInt(id, 10);
+  const { user } = useSelector((store) => store.user);
   const [movieDetail, setMovieDetails] = useState(null);
+
+  // console.log(user._id);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
         const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, API_OPTIONS);
         const data = await response.json();
-        console.log(data);
         setMovieDetails(data);
       } catch (error) {
         console.error("Error fetching movie details:", error);
@@ -27,6 +31,19 @@ const MovieDetails = () => {
     // Scroll to the top when new data is fetched
     window.scrollTo(0, 0);
   }, [movieId]);
+
+  const AddMovieToWatchList = async () => {
+    try {
+      // Make a POST request to add a movie to the watchlist
+      await axios.post("http://localhost:8000/api/watchlist", {
+        userId: user?._id,
+        movieId: movieId,
+        movieImg: movieDetail?.poster_path,
+      });
+    } catch (error) {
+      console.error("Error adding to watchlist:", error);
+    }
+  };
 
   return movieDetail ? (
     <>
@@ -39,11 +56,14 @@ const MovieDetails = () => {
             </h4>
             <p className="mt-4 text-base text-gray-200 tracking-wider">{movieDetail.overview.substring(0, 180)}...</p>
             <h5 className="mt-6 font-semibold text-lg">{movieDetail.genres.map((genre) => genre.name).join(" | ")}</h5>
-            <button className="mt-8 w-80 py-3 rounded-md bg-gray-200/[.7] text-black text-lg tracking-wider font-semibold hover:bg-gray-500/[.8] first">
-              <i className="fa-solid fa-play mr-2"></i> Watch Now
+            <button
+              className="mt-8 w-80 py-3 rounded-md bg-gray-200/[.7] text-black text-lg tracking-wider font-semibold hover:bg-gray-500/[.8] first"
+              onClick={() => AddMovieToWatchList()}
+            >
+              <i className="fa-solid fa-plus mr-2"></i> Add to Watchlist
             </button>
             <button className="mt-8 px-5 py-3 ml-5 rounded-md bg-gray-600/[.7] text-white text-lg tracking-wider font-semibold hover:bg-gray-500/[.8]">
-              <i className="fa-solid fa-plus"></i>
+              <i className="fa-solid fa-play"></i>
             </button>
           </div>
           <MovieCasts movieId={movieId} />

@@ -14,7 +14,7 @@ const UpComingMovies = () => {
         <h2 className="text-xl font-bold text-gray-200 mb-1 tracking-wide">{lang[langKey].upComing}</h2>
         <div id="container">
           {upComingMovies.map((item) => (
-            <MovieCard movie={item} />
+            <MovieCard movie={item} key={item?.id} />
           ))}
         </div>
       </div>
