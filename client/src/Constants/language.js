@@ -3,6 +3,7 @@ const lang = {
     searchPlaceHolder: "What would you like to watch today...",
     trending: "Trending Movies",
     popular: "Popular Movies",
+    upComing: "Upcoming Movies",
     topRated: "Top Rated Movies",
     account: "Account",
     home: "Home",
@@ -15,6 +16,7 @@ const lang = {
   hindi: {
     searchPlaceHolder: "आज आप क्या देखना चाहेंगे...",
     trending: "ट्रेंडिंग फिल्में",
+    upComing: "आगामी फ़िल्में",
     popular: "लोकप्रिय फ़िल्में",
     topRated: "शीर्ष रेटेड फिल्मे",
     account: "खाता",
@@ -28,6 +30,7 @@ const lang = {
   spanish: {
     searchPlaceHolder: "¿Qué te gustaría ver hoy...",
     trending: "Películas de moda",
+    upComing: "Próximas películas",
     popular: "Películas populares",
     topRated: "Películas mejor valoradas",
     account: "Cuenta",

@@ -180,7 +180,7 @@ h1 {
 }
 #movieList {
   position: absolute;
-  background: linear-gradient(to top, rgb(18, 23, 31) 65%, transparent);
+  background: linear-gradient(to top, rgb(18, 23, 31) 70%, transparent);
   z-index: 2;
   padding-top: 15%;
 }
@@ -224,7 +224,7 @@ h1 {
   }
   #movieList {
     padding-top: 60vw;
-    background: linear-gradient(to top, rgb(18, 23, 31) 81%, transparent);
+    background: linear-gradient(to top, rgb(18, 23, 31) 75%, transparent);
   }
   #movieList .content {
     display: none;
@@ -280,8 +280,8 @@ h1 {
 
 @media screen and (max-width: 700px) {
   #movieCard {
-    width: 110px;
-    height: 160px;
+    width: 125px;
+    height: 175px;
     margin: 0 5px;
   }
   #movieCard:hover {
@@ -356,7 +356,7 @@ h1 {
   #movieDetails iframe {
     padding-top: 10px;
     width: 100vw;
-    min-height: 55vw;
+    min-height: 60vw;
     position: fixed;
     top: 1;
     z-index: 1;
@@ -390,7 +390,7 @@ h1 {
     margin-top: 15px;
   }
   #movieDetails #pageContent #casts .container .img {
-    width: 100px;
+    width: 110px;
     border-radius: 5px;
   }
   #movieDetails #pageContent #casts p {

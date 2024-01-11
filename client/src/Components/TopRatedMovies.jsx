@@ -6,19 +6,8 @@ import lang from "../Constants/language";
 
 const TopRatedMovies = () => {
   const { topRatedMovies } = useSelector((store) => store.movies);
-  const [scrollPosition, setScrollPosition] = useState(0);
   const langKey = useSelector((store) => store.config.lang);
 
-  const handleScroll = (direction) => {
-    const cardWidth = 200; // Adjust based on your card size
-    const maxScroll = (topRatedMovies.length - 4) * cardWidth; // Show 5 cards at a time
-
-    if (direction === "left" && scrollPosition > 0) {
-      setScrollPosition(scrollPosition - cardWidth);
-    } else if (direction === "right" && scrollPosition < maxScroll) {
-      setScrollPosition(scrollPosition + cardWidth);
-    }
-  };
   return (
     <>
       <div className="movie-scroller">

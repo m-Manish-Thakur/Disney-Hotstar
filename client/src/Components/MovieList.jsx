@@ -3,6 +3,7 @@ import NowPlayingMovies from "./NowPlayingMovies";
 import PopularMovies from "./PopularMovies";
 import TopRatedMovies from "./TopRatedMovies";
 import Footer from "./Footer";
+import UpComingMovies from "./UpComingMovies";
 
 const MovieList = () => {
   return (
@@ -27,6 +28,7 @@ const MovieList = () => {
         </button>
       </div>
       <NowPlayingMovies />
+      <UpComingMovies />
       <PopularMovies />
       <TopRatedMovies />
       <Footer />
