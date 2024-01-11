@@ -10,7 +10,11 @@ dotenv.config();
 // Routes
 const userRoute = require("./Routes/User");
 
+<<<<<<< HEAD
 app.use(cors({ origin: "https://disney-hotstar-ivory.vercel.app" }));
+=======
+app.use(cors({ origin: 'https://disney-hotstar-ivory.vercel.app' }));
+>>>>>>> f3197f4897a5dce4eb54c69677039ef3c3da6424
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
