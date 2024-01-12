@@ -32,10 +32,12 @@ const Header = () => {
 
         {user ? (
           <nav className="flex flex-col justify-center items-start mt-16" id="nav">
-            <div className="flex items-center justify-start">
-              <i className="fa-regular fa-circle-user"></i>
-              <span>{lang[langKey].account}</span>
-            </div>
+            <Link to="/user/profile">
+              <div className="flex items-center justify-start">
+                <i className="fa-regular fa-circle-user"></i>
+                <span>{lang[langKey].account}</span>
+              </div>
+            </Link>
             <Link to="/search">
               <div className="flex items-center">
                 <i className="fa-solid fa-magnifying-glass"></i>

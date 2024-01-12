@@ -11,10 +11,11 @@ import Header from "./Header";
 import UserAccount from "./UserAccount";
 import MovieDetails from "./MovieDetails";
 import MoviesPage from "./MoviesPage";
-import TvShows from "./TvShows";
 import GptSearch from "./GptSearch";
 import Signup from "./Signup";
-import Footer from "./Footer";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Body = () => {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ const Body = () => {
           <Route path="/search" element={<GptSearch />} />
           <Route path="/user/profile" element={<UserAccount />} />
         </Routes>
+        <ToastContainer theme="dark" autoClose={2000} />
       </div>
     </BrowserRouter>
   );

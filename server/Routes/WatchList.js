@@ -26,4 +26,21 @@ router.get("/watchlist/:userId", async (req, res) => {
   }
 });
 
+// Delete a movie from the watchlist
+router.delete("/watchlist/:userId/:movieId", async (req, res) => {
+  const userId = req.params.userId;
+  const movieId = req.params.movieId;
+  console.log(movieId);
+  try {
+    const result = await WatchList.deleteOne({ userId: userId, movieId: movieId });
+    if (result.deletedCount === 1) {
+      res.json({ message: "Movie deleted successfully" });
+    } else {
+      res.status(404).json({ error: "Movie not found in watchlist" });
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Error deleting movie from watchlist" });
+  }
+});
+
 module.exports = router;

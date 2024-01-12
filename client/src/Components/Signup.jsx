@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axois from "axios";
 import "../index.css";
 import { validateFormData } from "../Utils/validate";
+import { SERVER_URL } from "../Constants/constants";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,7 +22,7 @@ const Signup = () => {
       // #######################   USER REGISTRATION   ##################################
       try {
         const response = await axois.post(
-          "https://hotstar-5dl1.onrender.com/user/register",
+          `${SERVER_URL}/user/register`,
           {
             username: username.current.value,
             email: email.current.value,

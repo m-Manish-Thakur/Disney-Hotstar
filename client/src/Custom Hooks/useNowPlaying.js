@@ -7,7 +7,7 @@ const useNowPlaying = () => {
   const dispatch = useDispatch();
 
   const fetchNowPlaying = async () => {
-    const response = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=hi-IN&page=1", API_OPTIONS);
+    const response = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", API_OPTIONS);
     const data = await response.json();
     dispatch(addNowPlayingMovie(data.results));
   };

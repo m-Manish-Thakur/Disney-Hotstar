@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "../index.css";
 import BackgroundVideoTrailer from "./BackgroundVideoTrailer";
-import { API_OPTIONS } from "../Constants/constants";
+import { API_OPTIONS, SERVER_URL } from "../Constants/constants";
 import RelatedMovies from "./RelatedMovies";
 import MovieCasts from "./MovieCasts";
 import Footer from "./Footer";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -35,11 +36,12 @@ const MovieDetails = () => {
   const AddMovieToWatchList = async () => {
     try {
       // Make a POST request to add a movie to the watchlist
-      await axios.post("http://localhost:8000/api/watchlist", {
+      await axios.post(`${SERVER_URL}/api/watchlist`, {
         userId: user?._id,
         movieId: movieId,
         movieImg: movieDetail?.poster_path,
       });
+      toast.success("Movie Added");
     } catch (error) {
       console.error("Error adding to watchlist:", error);
     }

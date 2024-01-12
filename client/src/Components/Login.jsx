@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 import axois from "axios";
 import "../index.css";
 import { validateFormData } from "../Utils/validate";
-
+import { SERVER_URL } from "../Constants/constants";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -32,7 +32,7 @@ const Login = () => {
       // #######################   USER LOGIN   ##################################
       try {
         const response = await axois.post(
-          "https://hotstar-5dl1.onrender.com/user/login",
+          `${SERVER_URL}/user/login`,
           {
             email: email.current.value,
             password: password.current.value,

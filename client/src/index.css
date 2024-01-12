@@ -157,6 +157,60 @@ h1 {
   background: linear-gradient(to right, rgb(0, 68, 255), rgb(0, 60, 255));
 }
 
+/* #########################   USER PROFILE   ####################### */
+
+#userProfile {
+  width: 100vw;
+  padding: 100px 10vw;
+  background: linear-gradient(to top, rgba(18, 23, 31, 0.689), rgba(18, 23, 31, 0.708));
+}
+#userProfile .watchlist h3 {
+  color: aliceblue;
+  font-size: 25px;
+  font-family: "poppins";
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+#userProfile .watchlist img {
+  width: 160px;
+  border-radius: 10px;
+  height: 250px;
+}
+#userProfile .watchlist div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 30px;
+}
+#userProfile .watchlist .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#userProfile .watchlist .card button {
+  background-color: rgb(221, 22, 22);
+  color: aliceblue;
+  padding: 7px;
+  font-size: 18px;
+  border-radius: 10px;
+  width: 50px;
+}
+#userProfile .watchlist .card button:hover {
+  background-color: brown;
+}
+@media screen and (max-width: 600px) {
+  #userProfile {
+    width: 100vw;
+    padding: 80px 3vw;
+    background: linear-gradient(to top, rgba(18, 23, 31, 0.689), rgba(18, 23, 31, 0.708));
+  }
+  #userProfile .watchlist img {
+    width: 150px;
+    border-radius: 10px;
+    height: 230px;
+  }
+}
+
 /* ####################    Browse Page   ############################### */
 
 #browse {
@@ -226,6 +280,7 @@ h1 {
     padding-top: 60vw;
     background: linear-gradient(to top, rgb(18, 23, 31) 75%, transparent);
   }
+
   #movieList .content {
     display: none;
   }
@@ -234,7 +289,7 @@ h1 {
   }
   #container {
     max-width: 98%;
-    padding: 15px 10px;
+    padding: 15px 0px;
     overflow-x: scroll;
     display: flex;
     gap: 10px;
