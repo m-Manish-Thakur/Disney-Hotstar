@@ -6,12 +6,13 @@ const cors = require("cors");
 const { MongoDB } = require("./constants");
 const dotenv = require("dotenv");
 dotenv.config();
+const compression = require("compression");
+app.use(compression());
 
 // Routes
 const userRoute = require("./Routes/User");
 const watchlistRoute = require("./Routes/WatchList");
 
-// app.use(cors({ origin: "http://localhost:3000" }));
 app.use(cors({ origin: "https://disney-hotstar-ivory.vercel.app" }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
