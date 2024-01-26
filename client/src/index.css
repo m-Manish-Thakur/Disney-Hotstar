@@ -368,7 +368,7 @@ h1 {
 #movieDetails #pageContent {
   position: absolute;
   width: 100vw;
-  padding: 18% 8vw 20px 10vw;
+  padding: 18% 8vw 20px 8vw;
   z-index: 10;
   background: linear-gradient(to top, rgb(15, 16, 20) 55%, transparent);
 }
